@@ -5,7 +5,7 @@ Based upon [IoT Plug and Play bridge](https://github.com/Azure/iot-plug-and-play
 **This is a work in progress**  
 The overall aim here is to implement a PnP component that handles the [Grove Beginner Kit for Arduino](https://wiki.seeedstudio.com/Grove-Beginner-Kit-For-Arduino) functionality.
 
-- Implements temeperature measurement with Grove BME280 Sensor.
+- Implements temperature measurement with Grove BME280 Sensor.
 - Implements some properties and commands but can't get these to work from Azure IoT Explorer.
 
 # Config
