@@ -1,0 +1,83 @@
+{
+    
+    "$schema": "../../iot-plug-and-play-bridge/pnpbridge/src/pnpbridge/src/pnpbridge_config_schema.json",
+    "pnp_bridge_connection_parameters": 
+    {
+        "connection_type" : "connection_string",
+        "connection_string" : "[ Enter ]",
+        "root_interface_model_id": "dtmi:com:contoso:serialpnp;1",
+        "auth_parameters": 
+        {
+            "auth_type": "symmetric_key",
+            "symmetric_key": "[ Enter ]"
+        }
+    },
+    "pnp_bridge_debug_trace": false,
+    "pnp_bridge_config_source": "local",
+    "_comment_devices": "Array of devices for Azure Pnp interface should be published",
+    "pnp_bridge_interface_components": 
+    [
+        {
+            "_comment": "Grove Beginner Kit for Arduino Sensors and Actuators Device Component",
+            "pnp_bridge_component_name": "serialpnp",
+            "pnp_bridge_adapter_id": "serial-pnp-interface",
+            "pnp_bridge_adapter_config": 
+            {
+                "com_port": "COM4",
+                "_comment": "NOTE: com_port parameter will NOT be used when use_com_device_interface is set to true. In case of windows iot edition, the COMXX symbolic links are not created. Setting use_com_device_interface to false will pick the first available COM interface.",
+                "use_com_device_interface": "false",
+                "baud_rate": "115200"
+            }
+        }
+    ],
+    "pnp_bridge_adapter_global_configs": 
+    {
+        "serial-pnp-interface": {
+            "DjAus" : {
+                "company_id": "0x499",
+                "endianness": "big",
+                "telemetry_descriptor": [
+                    {
+                        "telemetry_name": "temperature",
+                        "displayName":"Temperature",
+                        "data_parse_type": "decimal",
+                        "conversion_bias": 0,
+                        "conversion_coefficient": 1.0
+                    }
+                ],
+                "properties": {
+                    "sample_rate": {
+                        "name": "sample_rate",
+                        "displayName":"Sample Rate",
+                        "dataType": "integer",
+                        "required": true
+                    }
+                },
+                "commands": {
+                    "calibrate": {
+                        "commandType": "synchronous",
+                        "request":
+                        {
+                            "dataType": "integer"
+                        },
+                        "response":
+                        {
+                            "dataType": "integer"
+                        }
+                    },
+                    "toggle_state": {
+                        "commandType": "synchronous",
+                        "request":
+                        {
+                            "dataType": "integer"
+                        },
+                        "response":
+                        {
+                            "dataType": "integer"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
